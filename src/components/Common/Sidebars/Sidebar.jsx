@@ -13,7 +13,7 @@ const Sidebar = () => {
     >
       <img
         onClick={() => setToggleNav((prev) => !prev)}
-        className="absolute right-2 top-1 w-[2rem] cursor-pointer"
+        className="absolute block md:hidden right-2 top-1 w-[2rem] cursor-pointer"
         src="https://img.icons8.com/carbon-copy/100/cancel.png"
         alt=""
       />

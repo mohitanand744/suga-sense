@@ -8,7 +8,7 @@ const Nav = () => {
     <div className="bg-[#0480CA] navbar  justify-between px-9 h-[91px]">
       <img
         onClick={() => setToggleNav((prev) => !prev)}
-        className="w-[2rem] active:scale-90 transition-all duration-150 ease-out"
+        className="w-[2rem] block md:hidden active:scale-90 transition-all duration-150 ease-out"
         src="https://img.icons8.com/fluency/48/menu--v1.png"
         alt=""
       />
