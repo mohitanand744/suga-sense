@@ -1,10 +1,19 @@
 import React from "react";
+import UseContextData from "../../../Hooks/UseContextData";
 
 const Nav = () => {
+  const { setToggleNav } = UseContextData();
+
   return (
-    <div className="bg-[#0480CA] navbar justify-between px-9 h-[91px]">
+    <div className="bg-[#0480CA] navbar  justify-between px-9 h-[91px]">
+      <img
+        onClick={() => setToggleNav((prev) => !prev)}
+        className="w-[2rem] active:scale-90 transition-all duration-150 ease-out"
+        src="https://img.icons8.com/fluency/48/menu--v1.png"
+        alt=""
+      />
       <div className="flex-col">
-        <a className="text-xl font-bold text-white ">Hello, Admin</a>
+        <a className="text-lg font-bold text-white sm:text-xl ">Hello, Admin</a>
         <small className="text-white">Willkommen zurück!</small>
       </div>
       <div className="flex-none">
@@ -56,19 +65,15 @@ const Nav = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-[#0480CA] border-[3px] flex flex-col justify-between shadow-2xl text-lg border-white text-white rounded-box z-[1] mt-3 w-52 h-52 p-2 "
           >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
+            <div className="">
+              <li className="hover:bg-[]">Profile</li>
+              <li className="hover:bg-[]">Settings</li>
+              <li className="hover:bg-[]">Dashboard Settings</li>
+            </div>
+            <li className="w-full py-2 text-center border border-red-500 rounded-xl active:bg-slate-700 active:text-white">
+              Logout
             </li>
           </ul>
         </div>

@@ -10,10 +10,13 @@ import "./Styles/index.css";
 //! Pages Imports
 import { RouterProvider } from "react-router-dom";
 import router from "./Routes/Route.jsx";
+import DataProvider from "./Context/Store/Data.jsx";
 //-------------------------------------------
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <DataProvider>
+      <RouterProvider router={router} />
+    </DataProvider>
   </StrictMode>
 );
