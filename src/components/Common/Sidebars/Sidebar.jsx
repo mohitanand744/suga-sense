@@ -7,13 +7,13 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`w-[17rem] absolute ${
+      className={`w-[17rem] fixed ${
         toggleNav ? "left-[0%] " : "left-[-100%] "
-      }  md:left-0 top-0 bottom-0 min-h-[100vh] flex flex-col justify-between items-center p-5 bg-white border-r transition-all duration-200 ease-in-out`}
+      }  xl:left-0 top-0 bottom-0 min-h-[100vh] flex flex-col justify-between items-center p-5 bg-white border-r transition-all duration-200 ease-in-out`}
     >
       <img
         onClick={() => setToggleNav((prev) => !prev)}
-        className="absolute block md:hidden right-2 top-1 w-[2rem] cursor-pointer"
+        className="absolute block xl:hidden right-2 top-1 w-[2rem] cursor-pointer"
         src="https://img.icons8.com/carbon-copy/100/cancel.png"
         alt=""
       />
@@ -21,12 +21,12 @@ const Sidebar = () => {
         <img className="mx-auto" src="/images/Logo.svg" alt="" />
       </div>
 
-      <div class="w-64 bg-gray-50 h-screen p-4">
+      <div class="w-full h-screen p-1 mt-5">
         <ul class="space-y-4">
           <li onClick={() => setActive("dashboard")}>
             <a
               href="#"
-              class={`flex items-center space-x-4  p-2 ${
+              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "dashboard"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear"
                   : "text-gray-600"
@@ -39,7 +39,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("Patienten")}>
             <a
               href="#"
-              class={`flex items-center space-x-4  p-2 ${
+              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "Patienten"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
@@ -52,7 +52,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("Support")}>
             <a
               href="#"
-              class={`flex items-center space-x-4  p-2 ${
+              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "Support"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
@@ -65,7 +65,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("Einstellungen")}>
             <a
               href="#"
-              class={`flex items-center space-x-4  p-2 ${
+              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "Einstellungen"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"

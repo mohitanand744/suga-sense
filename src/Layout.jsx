@@ -5,19 +5,18 @@ import Sidebar from "./components/Common/Sidebars/Sidebar";
 
 const Layout = () => {
   return (
-    <div className="relative flex justify-between w-full h-screen">
+    <div className="flex h-screen">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex flex-col flex-1 md:ml-[17rem]  transition-all duration-200 ease-in-out">
+      <div className="flex xl:ml-[17rem] flex-col w-full h-screen">
         {/* Navbar */}
         <Nav />
 
         {/* Outlet for Nested Routes */}
-        <div className="h-full">
-          <Outlet />
-        </div>
+
+        <Outlet />
       </div>
     </div>
   );
