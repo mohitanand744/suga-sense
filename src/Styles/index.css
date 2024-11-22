@@ -11,3 +11,15 @@
 body {
   background: #fff;
 }
+
+button {
+  transition: 0.5s;
+
+  &:hover {
+    scale: 1.02;
+  }
+
+  &:active {
+    scale: 0.89;
+  }
+}

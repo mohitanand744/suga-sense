@@ -10,7 +10,7 @@ const Layout = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <div className="flex xl:ml-[17rem] flex-col w-full h-screen">
+      <div className="flex xl:ml-[15rem] flex-col w-full h-screen">
         {/* Navbar */}
         <Nav />
 

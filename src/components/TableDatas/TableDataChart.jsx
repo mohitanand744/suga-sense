@@ -1,4 +1,6 @@
-export default function PatientenTable() {
+import Pagination from "../Paginations/Pagination";
+
+export default function PatientenTable({ pathname }) {
   const patients = [
     {
       name: "Janim Kim",
@@ -28,11 +30,39 @@ export default function PatientenTable() {
       monitorStatus: "beendet",
       status: "normal",
     },
+    {
+      name: "Janim Kim",
+      age: 22,
+      gender: "männlich",
+      phone: "20220 102 45",
+      lastData: "2024-06-11 10:03:58",
+      glucose: "9.6mmol/L",
+      performance: "Sendeleistung: 3",
+      startTime: "28-05-2024 03:13:32",
+      endTime: "11-06-2024 10:05:50",
+      period: "14 Tag(e) 6 Std.",
+      monitorStatus: "beendet",
+      status: "normal",
+    },
+    {
+      name: "Kanim Kim",
+      age: 22,
+      gender: "männlich",
+      phone: "20220 102 45",
+      lastData: "2024-06-11 10:03:58",
+      glucose: "9.6mmol/L",
+      performance: "Sendeleistung: 3",
+      startTime: "28-05-2024 03:13:32",
+      endTime: "11-06-2024 10:05:50",
+      period: "14 Tag(e) 6 Std.",
+      monitorStatus: "OnGoing",
+      status: "normal",
+    },
   ];
 
   return (
     <div className="">
-      <h2 className="mb-4 text-lg font-semibold text-black">
+      <h2 className="mb-4 text-lg font-semibold text-black md:text-2xl">
         Ausgewählte Patienten
       </h2>
       <div className="overflow-x-auto hideScrollBar">
@@ -110,28 +140,30 @@ export default function PatientenTable() {
 
                 {/* Monitor status */}
                 <td className="p-4">
-                  <span
-                    className={`px-5 py-2 rounded text-sm font-medium ${
+                  <button
+                    className={`w-[7rem] text-center px-4 py-2 rounded-xl text-sm font-medium ${
                       patient.monitorStatus === "aktiv"
                         ? "bg-yellow-400 text-white"
+                        : patient.monitorStatus === "OnGoing"
+                        ? "bg-[#33d613] text-white"
                         : "bg-[#0480CA] text-white"
                     }`}
                   >
                     {patient.monitorStatus}
-                  </span>
+                  </button>
                 </td>
 
                 {/* Status */}
                 <td className="p-4">
-                  <span className="px-5 py-2 text-sm font-medium text-white bg-[#0480CA] rounded">
+                  <button className="w-[6rem] text-center px-4 py-2 text-sm font-medium text-white bg-[#0480CA] rounded-xl">
                     {patient.status}
-                  </span>
+                  </button>
                 </td>
 
                 {/* Aktion */}
                 <td className="p-4">
-                  <button className="px-5 py-2 text-sm font-medium text-gray-600 bg-gray-200 rounded hover:bg-gray-300">
-                    Ansicht
+                  <button className="flex items-center gap-2 w-[6rem] text-center px-4 py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 ">
+                    <img src="/images/eye.png" alt="" /> Ansicht
                   </button>
                 </td>
               </tr>
@@ -139,6 +171,8 @@ export default function PatientenTable() {
           </tbody>
         </table>
       </div>
+
+      {pathname === "patienten" && <Pagination />}
     </div>
   );
 }

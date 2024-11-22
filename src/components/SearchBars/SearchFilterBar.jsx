@@ -1,10 +1,24 @@
 import React from "react";
 
-const SearchFilterBar = () => {
+const SearchFilterBar = ({ pathname }) => {
   return (
-    <div className="flex flex-wrap justify-end items-center p-3 sm:p-4 gap-2 bg-[#81BFE4] my-5 rounded-lg">
+    <div
+      className={`flex flex-wrap justify-center lg:justify-end items-center p-3 sm:p-4 gap-2 bg-[#81BFE4] ${
+        pathname === "patienten" ? "mb-5" : "my-5"
+      } rounded-lg`}
+    >
       {/* First Input */}
-      <div className="flex  items-center px-3 bg-white rounded-md shadow w-full sm:w-[45%] mx-auto md:mx-0 md:w-[30%]">
+
+      <div
+        className={` font-semibold text-white ${
+          pathname === "patienten"
+            ? "lg:mr-[7rem] text-3xl"
+            : "lg:mr-[4rem] text-2xl"
+        }`}
+      >
+        <p>{pathname === "patienten" ? "Patienten" : "4 Resultate gefunden"}</p>
+      </div>
+      <div className="flex  items-center px-3 bg-white rounded-md shadow w-full sm:w-[69%] mx-auto md:mx-0 md:w-[30%]">
         <input
           type="text"
           placeholder="Patientennamen"
@@ -29,7 +43,7 @@ const SearchFilterBar = () => {
       </div>
 
       {/* Second Input */}
-      <div className="flex items-center px-3 bg-white rounded-md shadow w-full sm:w-[45%] mx-auto md:mx-0 md:w-[30%]">
+      <div className="flex items-center px-3 bg-white rounded-md shadow w-full sm:w-[69%] mx-auto md:mx-0 md:w-[30%]">
         <input
           type="text"
           placeholder="Geben Sie das Monitorkonto ein"

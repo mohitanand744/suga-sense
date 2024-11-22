@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Layout from "../Layout";
 import Dashboard from "../components/Dashboard/Dashboard";
+import NotFound from "../components/Errors/404/NotFound";
 
 /* 
 
@@ -19,6 +20,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Dashboard />} />
+      <Route path="patienten" element={<Dashboard />} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   ),
   {
