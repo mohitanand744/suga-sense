@@ -192,9 +192,9 @@ export default function PatientenTable({ pathname }) {
           </button>
           <p className="mt-3 text-gray-600">0:59</p>
         </div>
-        {/* <label className="modal-backdrop" htmlFor="my_modal_7">
+        <label className="modal-backdrop" htmlFor="my_modal_7">
           Close
-        </label> */}
+        </label>
       </div>
 
       {pathname === "patienten" && <Pagination />}
