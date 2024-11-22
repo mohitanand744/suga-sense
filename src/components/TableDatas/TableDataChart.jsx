@@ -162,14 +162,39 @@ export default function PatientenTable({ pathname }) {
 
                 {/* Aktion */}
                 <td className="p-4">
-                  <button className="flex items-center gap-2 w-[6rem] text-center px-4 py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 ">
+                  <label
+                    htmlFor="my_modal_7"
+                    className=" flex items-center gap-2 w-[6rem] text-center px-4 py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 "
+                  >
                     <img src="/images/eye.png" alt="" /> Ansicht
-                  </button>
+                  </label>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Modal */}
+
+      {/* Put this part before </body> tag */}
+      <input type="checkbox" id="my_modal_7" className=" modal-toggle" />
+      <div className="modal" role="dialog">
+        <div className="text-center text-black bg-white modal-box">
+          <h3 className="text-lg font-bold">Send Request</h3>
+          <p className="py-4">
+            We Sent Request To The Patients Application When Request Was Accept
+            Details Will Automatic Saw.
+          </p>
+
+          <button className="p-2 px-3 mt-4 text-white bg-gray-500 rounded-lg">
+            Send Request Again
+          </button>
+          <p className="mt-3 text-gray-600">0:59</p>
+        </div>
+        {/* <label className="modal-backdrop" htmlFor="my_modal_7">
+          Close
+        </label> */}
       </div>
 
       {pathname === "patienten" && <Pagination />}
