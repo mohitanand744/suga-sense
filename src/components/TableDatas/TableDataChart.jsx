@@ -182,7 +182,28 @@ export default function PatientenTable({ pathname }) {
       <div className="modal" role="dialog">
         <div className="text-center text-black bg-white modal-box">
           <h3 className="text-lg font-bold">Send Request</h3>
-          <p className="py-4">
+
+          <div className="border border-blue-600 w-[16rem] mx-auto rounded-2xl mt-4 py-2">
+            <p className="font-semibold text-black ps-[1.6rem] text-start">
+              Janim Kim
+            </p>
+            <div className="flex flex-wrap items-center ps-[1.6rem] w-full gap-5 text-sm text-gray-500">
+              <div className="flex items-center gap-1">
+                <img src="/images/age.png" alt="" />{" "}
+                <span className="mx-1">22 Jahre</span>{" "}
+              </div>
+              <div className="flex items-center gap-1">
+                <img src="/images/gender.png" alt="" />{" "}
+                <span className="">männlich</span>
+              </div>
+            </div>
+            <div className="flex items-center ps-[1.6rem] gap-1 mt-1 text-sm text-gray-500">
+              <img src="/images/icons.png" alt="" />
+              5436 3555 53653
+            </div>
+          </div>
+
+          <p className="py-4 text-gray-500">
             We Sent Request To The Patients Application When Request Was Accept
             Details Will Automatic Saw.
           </p>
@@ -197,7 +218,7 @@ export default function PatientenTable({ pathname }) {
         </label>
       </div>
 
-      {pathname === "patienten" && <Pagination />}
+      {pathname === "dashboardpatienten" && <Pagination />}
     </div>
   );
 }

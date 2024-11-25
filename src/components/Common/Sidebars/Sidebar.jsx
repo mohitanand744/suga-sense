@@ -12,10 +12,6 @@ const Sidebar = () => {
 
   const { toggleNav, setToggleNav } = UseContextData();
 
-  useEffect(() => {
-    setActive(location.pathname.replaceAll("/", "") || "dashboard");
-  }, [location.pathname]);
-
   return (
     <div
       className={`w-[15rem] fixed z-40 ${
@@ -37,7 +33,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("dashboard")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
-              to={"/"}
+              to={"/dashboard"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "dashboard"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear"
@@ -51,7 +47,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("patienten")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
-              to={"/patienten"}
+              to={"/dashboard/patienten"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "patienten"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
@@ -65,7 +61,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("support")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
-              to={"/support"}
+              to={"/dashboard/support"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "support"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
@@ -79,7 +75,7 @@ const Sidebar = () => {
           <li onClick={() => setActive("einstellungen")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
-              to={"/einstellungen"}
+              to={"/dashboard/einstellungen"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "einstellungen"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
@@ -95,10 +91,12 @@ const Sidebar = () => {
         </ul>
       </div>
       <div className="w-full">
-        <button class="flex text-lg items-center space-x-2 border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-100 w-full">
-          <img src="/images/signIcon.png" alt="exit" />
-          <span> Abmelden</span>
-        </button>
+        <Link to={"/"}>
+          <button class="flex text-lg items-center space-x-2 border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-100 w-full">
+            <img src="/images/signIcon.png" alt="exit" />
+            <span> Abmelden</span>
+          </button>
+        </Link>
       </div>
     </div>
   );

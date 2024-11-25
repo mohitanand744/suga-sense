@@ -27,7 +27,7 @@ const NotFound = () => {
 
         {/* Go Back Button */}
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/dashboard")}
           className="px-6 py-3 text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600"
         >
           Go Back to Dashboard

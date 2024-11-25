@@ -7,6 +7,7 @@ import {
 import Layout from "../Layout";
 import Dashboard from "../components/Dashboard/Dashboard";
 import NotFound from "../components/Errors/404/NotFound";
+import LoginPage from "../components/Auth/Pages/LoginPage";
 
 /* 
 
@@ -18,11 +19,14 @@ You can test and adjust your code incrementally to avoid breaking changes.
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Dashboard />} />
-      <Route path="patienten" element={<Dashboard />} />
+    <>
+      <Route path="/" element={<LoginPage />} />
+      <Route path="/dashboard" element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="patienten" element={<Dashboard />} />
+      </Route>
       <Route path="*" element={<NotFound />} />
-    </Route>
+    </>
   ),
   {
     future: {

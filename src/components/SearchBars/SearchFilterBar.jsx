@@ -4,19 +4,23 @@ const SearchFilterBar = ({ pathname }) => {
   return (
     <div
       className={`flex flex-wrap justify-center lg:justify-end items-center p-3 sm:p-4 gap-2 bg-[#81BFE4] ${
-        pathname === "patienten" ? "mb-5" : "my-5"
+        pathname === "dashboardpatienten" ? "mb-5" : "my-5"
       } rounded-lg`}
     >
       {/* First Input */}
 
       <div
         className={` font-semibold text-white ${
-          pathname === "patienten"
+          pathname === "dashboardpatienten"
             ? "lg:mr-[7rem] text-3xl"
             : "lg:mr-[4rem] text-2xl"
         }`}
       >
-        <p>{pathname === "patienten" ? "Patienten" : "4 Resultate gefunden"}</p>
+        <p>
+          {pathname === "dashboardpatienten"
+            ? "Patienten"
+            : "4 Resultate gefunden"}
+        </p>
       </div>
       <div className="flex  items-center px-3 bg-white rounded-md shadow w-full sm:w-[69%] mx-auto md:mx-0 md:w-[30%]">
         <input
