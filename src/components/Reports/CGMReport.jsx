@@ -114,7 +114,7 @@ const CGMReport = () => {
               <div className="relative">
                 <input
                   type="date"
-                  className="w-full px-4 py-2 text-sm text-gray-500 bg-white rounded-md appearance-none focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full px-2 py-2 text-sm text-gray-500 bg-white rounded-md appearance-none focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Geben Sie den Namen ein"
                 />
                 <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
@@ -156,7 +156,7 @@ const CGMReport = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="p-4 text-center bg-white rounded-lg shadow h-[9rem] md:h-[10rem]"
+                className="p-4 text-center bg-white rounded-lg shadow h-[8rem] md:h-[9rem]"
               >
                 <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
                   {item.value}{" "}
