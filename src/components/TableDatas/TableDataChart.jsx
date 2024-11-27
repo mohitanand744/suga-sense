@@ -147,6 +147,7 @@ export default function PatientenTable({ pathname }) {
                 {/* Monitor status */}
                 <td className="p-4">
                   <button
+                    onClick={(e) => e.stopPropagation()}
                     className={`w-[7rem] text-center px-4 py-2 rounded-xl text-sm font-medium ${
                       patient.monitorStatus === "aktiv"
                         ? "bg-yellow-400 text-white"
@@ -161,7 +162,10 @@ export default function PatientenTable({ pathname }) {
 
                 {/* Status */}
                 <td className="p-4">
-                  <button className="w-[6rem] text-center px-4 py-2 text-sm font-medium text-white bg-[#0480CA] rounded-xl">
+                  <button
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-[6rem] text-center px-4 py-2 text-sm font-medium text-white bg-[#0480CA] rounded-xl"
+                  >
                     {patient.status}
                   </button>
                 </td>
@@ -170,6 +174,7 @@ export default function PatientenTable({ pathname }) {
                 <td className="p-4">
                   <label
                     htmlFor="my_modal_7"
+                    onClick={(e) => e.stopPropagation()}
                     className=" flex items-center gap-2 w-[6rem] text-center px-4 py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 "
                   >
                     <img src="/images/eye.png" alt="" /> Ansicht
