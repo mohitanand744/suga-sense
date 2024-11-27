@@ -10,11 +10,9 @@ import NotFound from "../components/Errors/404/NotFound";
 import LoginPage from "../components/Auth/Pages/LoginPage";
 
 /* 
-
 Why Use Future Flags?
 Enabling these flags helps you transition smoothly to React Router v7 without surprises when upgrading.
 You can test and adjust your code incrementally to avoid breaking changes.
-
 */
 
 const router = createBrowserRouter(
@@ -24,6 +22,7 @@ const router = createBrowserRouter(
       <Route path="/dashboard" element={<Layout />}>
         <Route index element={<Dashboard />} />
         <Route path="patienten" element={<Dashboard />} />
+        <Route path="cgmreport" element={<Dashboard />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </>

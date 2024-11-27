@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom";
 import Pagination from "../Paginations/Pagination";
 
 export default function PatientenTable({ pathname }) {
@@ -60,6 +61,8 @@ export default function PatientenTable({ pathname }) {
     },
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="">
       <h2 className="mb-4 text-lg font-semibold text-black md:text-2xl">
@@ -83,6 +86,9 @@ export default function PatientenTable({ pathname }) {
             {patients.map((patient, index) => (
               <tr
                 key={index}
+                onClick={() => {
+                  navigate("/dashboard/cgmreport");
+                }}
                 className={`${
                   index % 2 === 0 ? "bg-white" : "bg-gray-50"
                 } hover:bg-gray-100`}

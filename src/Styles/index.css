@@ -23,3 +23,9 @@ button {
     scale: 0.89;
   }
 }
+
+.hideScrollBar {
+  &::-webkit-scrollbar {
+    display: none !important;
+  }
+}
