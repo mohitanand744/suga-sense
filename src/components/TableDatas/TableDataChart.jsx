@@ -175,7 +175,7 @@ export default function PatientenTable({ pathname }) {
                   <label
                     htmlFor="my_modal_7"
                     onClick={(e) => e.stopPropagation()}
-                    className=" flex items-center gap-2 w-[6rem] text-center px-4 py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 "
+                    className=" flex items-center gap-2 w-[6rem] text-center px-4  py-2 text-sm font-medium bg-gray-500 rounded-xl text-gray-50 hover:bg-gray-400 "
                   >
                     <img src="/images/eye.png" alt="" /> Ansicht
                   </label>
