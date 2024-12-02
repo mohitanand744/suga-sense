@@ -16,7 +16,7 @@ const SearchFilterBar = ({ pathname }) => {
         pathname === "dashboardsupport"
           ? "mb-5"
           : "my-5"
-      } ${pathname === "dashboard" ? "rounded-lg p-3 sm:p-4" : " py-6"}`}
+      } ${pathname === "dashboard" ? "rounded-lg p-3 sm:p-4" : "py-6"}`}
     >
       {/* First Input */}
 

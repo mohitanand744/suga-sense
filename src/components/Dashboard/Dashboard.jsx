@@ -63,6 +63,8 @@ const Dashboard = () => {
         </>
       ) : pathname === "dashboardcgmreport" ? (
         <>
+          <SearchFilterBar pathname={pathname} />
+
           <CGMReport />
         </>
       ) : (

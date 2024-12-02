@@ -54,7 +54,7 @@ const CGMReport = () => {
   }, []);
 
   return (
-    <div className="">
+    <div className="p-3 xl:py-8 xl:px-5">
       <div className="mb-4 rounded-lg">
         {/* Tabs */}
         <div className="flex items-center justify-between mb-4">
