@@ -6,17 +6,17 @@ const SearchFilterBar = ({ pathname }) => {
 
   return (
     <div
-      className={`flex flex-wrap justify-center px-5 ${
+      className={`flex flex-wrap justify-center px-5  ${
         pathname === "dashboardcgmreport" || pathname === "dashboardsupport"
           ? "md:justify-between gap-8"
           : "lg:justify-end"
-      } items-center p-3 sm:p-4 gap-2 bg-[#81BFE4] ${
+      } items-center  gap-2 bg-[#81BFE4] ${
         pathname === "dashboardpatienten" ||
         pathname === "dashboardcgmreport" ||
         pathname === "dashboardsupport"
           ? "mb-5"
           : "my-5"
-      } rounded-lg`}
+      } ${pathname === "dashboard" ? "rounded-lg p-3 sm:p-4" : " py-6"}`}
     >
       {/* First Input */}
 

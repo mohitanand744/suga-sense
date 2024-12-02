@@ -2,7 +2,7 @@ import React from "react";
 
 const HilfeSupport = () => {
   return (
-    <div class=" mx-auto space-y-8">
+    <div class=" mx-auto space-y-8 p-8">
       <section>
         <h2 class="text-xl font-semibold mb-4 text-black">Wie Benutzt Man?</h2>
         <p class="text-gray-700 leading-relaxed">

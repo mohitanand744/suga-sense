@@ -12,7 +12,7 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`p-3  xl:px-8 dashboard ${
+      className={`${pathname === "dashboard" && "p-8"} dashboard ${
         pathname === "dashboardcgmreport" ? "bg-gray-100 " : "bg-white"
       }`}
     >
