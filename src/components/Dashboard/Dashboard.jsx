@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 const PatientenTable = React.lazy(() => import("../TableDatas/TableDataChart"));
 import SearchFilterBar from "./../SearchBars/SearchFilterBar";
 import CGMReport from "../Reports/CGMReport";
+import HilfeSupport from "../Support/HilfeSupport";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -15,7 +16,9 @@ const Dashboard = () => {
         pathname === "dashboardcgmreport" ? "bg-gray-100 " : "bg-white"
       }`}
     >
-      {pathname === "dashboard" || pathname === "dashboardpatienten" ? (
+      {pathname === "dashboard" ||
+      pathname === "dashboardpatienten" ||
+      pathname === "dashboardsupport" ? (
         <>
           {pathname === "dashboard" ? (
             <div className="flex flex-wrap justify-between w-auto gap-5 dashboardSection1">
@@ -44,24 +47,32 @@ const Dashboard = () => {
 
           <SearchFilterBar pathname={pathname} />
 
-          <Suspense
-            fallback={
-              <center className="flex items-center justify-center w-full h-[30vh]">
-                <img src="/images/Logo.svg" alt="" />
-              </center>
-            }
-          >
-            <PatientenTable pathname={pathname} />
-          </Suspense>
+          {pathname === "dashboard" || pathname === "dashboardpatienten" ? (
+            <Suspense
+              fallback={
+                <center className="flex items-center justify-center w-full h-[30vh]">
+                  <img src="/images/Logo.svg" alt="" />
+                </center>
+              }
+            >
+              <PatientenTable pathname={pathname} />
+            </Suspense>
+          ) : (
+            ""
+          )}
         </>
       ) : pathname === "dashboardcgmreport" ? (
         <>
-          <SearchFilterBar pathname={pathname} />
-
           <CGMReport />
         </>
       ) : (
         ""
+      )}
+
+      {pathname === "dashboardsupport" && (
+        <>
+          <HilfeSupport />
+        </>
       )}
     </div>
   );

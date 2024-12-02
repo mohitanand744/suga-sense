@@ -3,14 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 const SearchFilterBar = ({ pathname }) => {
   const navigate = useNavigate();
+
   return (
     <div
       className={`flex flex-wrap justify-center px-5 ${
-        pathname === "dashboardcgmreport"
-          ? "md:justify-between gap-5"
+        pathname === "dashboardcgmreport" || pathname === "dashboardsupport"
+          ? "md:justify-between gap-8"
           : "lg:justify-end"
       } items-center p-3 sm:p-4 gap-2 bg-[#81BFE4] ${
-        pathname === "dashboardpatienten" || pathname === "dashboard/cgmreport"
+        pathname === "dashboardpatienten" ||
+        pathname === "dashboardcgmreport" ||
+        pathname === "dashboardsupport"
           ? "mb-5"
           : "my-5"
       } rounded-lg`}
@@ -43,8 +46,12 @@ const SearchFilterBar = ({ pathname }) => {
                 CGM-Bericht
               </div>
             </>
-          ) : (
+          ) : pathname === "dashboard" ? (
             "4 Resultate gefunden"
+          ) : pathname === "dashboardsupport" ? (
+            "Hilfe und Support"
+          ) : (
+            ""
           )}
         </p>
       </div>
@@ -72,7 +79,7 @@ const SearchFilterBar = ({ pathname }) => {
             </div>
           </ul>
         </>
-      ) : (
+      ) : pathname === "dashboard" || pathname === "dashboardpatienten" ? (
         <>
           <div className="flex  items-center px-3 bg-white rounded-md shadow w-full mx-auto md:mx-0 md:w-[30%]">
             <input
@@ -142,6 +149,10 @@ const SearchFilterBar = ({ pathname }) => {
             Filter
           </button>
         </>
+      ) : (
+        <button className="flex items-center text-sm md:text-lg  mx-auto hover:scale-105 transition-all duration-200 ease-in md:mx-0 px-2 md:px-4 py-1 md:py-2 font-semibold text-[#0480CA] bg-white rounded-md shadow active:scale-95">
+          Kontaktieren Sie uns
+        </button>
       )}
     </div>
   );

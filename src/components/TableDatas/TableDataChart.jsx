@@ -192,7 +192,7 @@ export default function PatientenTable({ pathname }) {
       <input type="checkbox" id="my_modal_7" className=" modal-toggle" />
       <div className="modal" role="dialog">
         <div className="text-center text-black bg-white modal-box">
-          <h3 className="text-lg font-bold">Send Request</h3>
+          <h3 className="text-xl font-bold md:text-3xl">Anfrage senden</h3>
 
           <div className="border border-blue-600 w-[16rem] mx-auto rounded-2xl mt-4 py-2">
             <p className="font-semibold text-black ps-[1.6rem] text-start">
@@ -214,15 +214,15 @@ export default function PatientenTable({ pathname }) {
             </div>
           </div>
 
-          <p className="py-4 text-gray-500">
-            We Sent Request To The Patients Application When Request Was Accept
-            Details Will Automatic Saw.
+          <p className="py-4 text-lg text-gray-500">
+            Wir haben die Anfrage an den Patientenantrag gesendet, als die
+            Anfrage akzeptiert wurde. Details werden automatisch angezeigt..
           </p>
 
-          <button className="p-2 px-3 mt-4 text-white bg-gray-500 rounded-lg">
-            Send Request Again
+          <button className="p-3 px-4 text-white bg-gray-500 rounded-lg">
+            Anfrage erneut senden
           </button>
-          <p className="mt-3 text-gray-600">0:59</p>
+          <p className="mt-2 text-gray-600">0:59</p>
         </div>
         <label className="modal-backdrop" htmlFor="my_modal_7">
           Close

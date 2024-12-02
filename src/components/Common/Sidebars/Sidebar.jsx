@@ -44,12 +44,12 @@ const Sidebar = () => {
               <span>Dashboard</span>
             </Link>
           </li>
-          <li onClick={() => setActive("patienten")}>
+          <li onClick={() => setActive("dashboardpatienten")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard/patienten"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
-                active === "patienten"
+                active === "dashboardpatienten"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
               } rounded-md`}
@@ -58,12 +58,12 @@ const Sidebar = () => {
               <span>Patienten</span>
             </Link>
           </li>
-          <li onClick={() => setActive("support")}>
+          <li onClick={() => setActive("dashboardsupport")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard/support"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
-                active === "support"
+                active === "dashboardsupport"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
               } rounded-md`}
@@ -72,12 +72,12 @@ const Sidebar = () => {
               <span>Hilfe und Support</span>
             </Link>
           </li>
-          <li onClick={() => setActive("einstellungen")}>
+          <li onClick={() => setActive("dashboardeinstellungen")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard/einstellungen"}
               class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
-                active === "einstellungen"
+                active === "dashboardeinstellungen"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
               } rounded-md`}

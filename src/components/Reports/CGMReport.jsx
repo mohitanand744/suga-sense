@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import KontinuierlicherGraph from "./KontinuierlicherGraph";
 
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const CGMReport = () => {
   const [responsiveChart, setResponsiveChart] = useState("left");
+  const [active, setActive] = useState("Überblick");
 
   const chartData = {
     labels: ["Higher than 12", "Normal Range (4-12)", "Lower than 4"],
@@ -53,95 +55,143 @@ const CGMReport = () => {
 
   return (
     <div className="">
-      <div>
-        <div className="rounded-lg md:p-4">
-          {/* Tabs */}
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex w-full overflow-auto hideScrollBar">
-              <button className="w-full py-2 px-3 text-sm font-semibold text-white bg-[#0480CA] rounded-s-full">
-                Überblick
-              </button>
-              <button className="w-full px-3 py-2 text-sm font-semibold text-gray-700 bg-white shadow">
-                24-Stunden-Überlappungsdiagramm
-              </button>
-              <button className="w-full px-3 py-2 text-sm font-semibold text-gray-700 bg-white shadow">
-                Tägliche Zusammenfassung
-              </button>
-              <button className="w-full px-3 py-2 text-sm font-semibold text-gray-700 bg-white shadow">
-                TIRGraph
-              </button>
-              <button className="w-full px-3 py-2 text-sm font-semibold text-gray-700 bg-white shadow">
-                Druckoption
-              </button>
-              <button className="w-full px-3 py-2 text-sm font-semibold text-gray-700 bg-white shadow">
-                Datentabelle
-              </button>
-              <button className="w-full px-3 py-2 text-sm font-semibold text-gray-700 bg-white shadow rounded-e-full">
-                Ereignisaufzeichnung
-              </button>
+      <div className="mb-4 rounded-lg">
+        {/* Tabs */}
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex w-full overflow-auto hideScrollBar">
+            <button
+              onClick={() => setActive("Überblick")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "Überblick"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } rounded-s-full`}
+            >
+              Überblick
+            </button>
+            <button
+              onClick={() => setActive("24-Stunden-Überlappungsdiagramm")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "24-Stunden-Überlappungsdiagramm"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } `}
+            >
+              24-Stunden-Überlappungsdiagramm
+            </button>
+            <button
+              onClick={() => setActive("Tägliche Zusammenfassung")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "Tägliche Zusammenfassung"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } `}
+            >
+              Tägliche Zusammenfassung
+            </button>
+            <button
+              onClick={() => setActive("TIRGraph")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "TIRGraph"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } `}
+            >
+              TIRGraph
+            </button>
+            <button
+              onClick={() => setActive("Druckoption")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "Druckoption"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } `}
+            >
+              Druckoption
+            </button>
+            <button
+              onClick={() => setActive("Datentabelle")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "Datentabelle"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } `}
+            >
+              Datentabelle
+            </button>
+            <button
+              onClick={() => setActive("Ereignisaufzeichnung")}
+              className={`w-full py-2 px-3 text-sm font-semibold  ${
+                active === "Ereignisaufzeichnung"
+                  ? "bg-[#0480CA] text-white"
+                  : "bg-white text-black"
+              } rounded-e-full`}
+            >
+              Ereignisaufzeichnung
+            </button>
+          </div>
+        </div>
+
+        {/* Date Range */}
+        <div className="flex flex-wrap items-center justify-between mb-4 space-y-2 md:mb-0 md:space-x-4">
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <input
+                type="date"
+                className="w-full px-2 py-2 text-sm text-gray-500 bg-white rounded-md appearance-none sm:px-4 focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Geben Sie den Namen ein"
+              />
+              <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <span className="text-[0.8rem] font-medium text-gray-900  sm:text-sm">
+              Zu
+            </span>
+            <div className="relative">
+              <input
+                type="date"
+                className="w-full px-2 py-2 text-sm text-gray-500 bg-white rounded-md appearance-none focus:ring-blue-500 focus:border-blue-500"
+                placeholder="Geben Sie den Namen ein"
+              />
+              <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5 text-blue-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
-
-          {/* Date Range */}
-          <div className="flex flex-wrap items-center justify-between mb-4 space-y-2 md:mb-0 md:space-x-4">
-            <div className="flex items-center gap-2">
-              <div className="relative">
-                <input
-                  type="date"
-                  className="w-full px-2 py-2 text-sm text-gray-500 bg-white rounded-md appearance-none sm:px-4 focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Geben Sie den Namen ein"
-                />
-                <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-blue-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <span className="text-[0.8rem] font-medium text-gray-900  sm:text-sm">
-                Zu
-              </span>
-              <div className="relative">
-                <input
-                  type="date"
-                  className="w-full px-2 py-2 text-sm text-gray-500 bg-white rounded-md appearance-none focus:ring-blue-500 focus:border-blue-500"
-                  placeholder="Geben Sie den Namen ein"
-                />
-                <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-5 h-5 text-blue-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            <div className="text-sm font-bold text-gray-900">
-              Insgesamt 0 Tage
-            </div>
+          <div className="text-sm font-bold text-gray-900">
+            Insgesamt 0 Tage
           </div>
         </div>
       </div>
-      <div className="p-4 md:p-6 bg-gray-50">
+
+      <div className="p-4 md:p-6 ">
         <div className="grid grid-cols-1 gap-4 md:gap-5 xl:grid-cols-12">
           {/* Left Section */}
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:col-span-5">
@@ -156,7 +206,7 @@ const CGMReport = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="p-4 text-center bg-white rounded-lg shadow h-[8rem] md:h-[9rem]"
+                className="p-4 text-center bg-white rounded-lg shadow h-[8rem] md:h-[10rem]"
               >
                 <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
                   {item.value}{" "}
@@ -199,6 +249,10 @@ const CGMReport = () => {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="flex items-center justify-center w-full mb-6">
+        <KontinuierlicherGraph />
       </div>
     </div>
   );
