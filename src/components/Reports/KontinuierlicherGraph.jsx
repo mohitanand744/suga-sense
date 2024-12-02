@@ -99,7 +99,7 @@ const KontinuierlicherGraph = () => {
   };
 
   return (
-    <div className="w-[96%] p-3 md:p-5 overflow-hidden bg-white h-[29rem] rounded-lg shadow ">
+    <div className="w-full p-3 md:p-5 overflow-hidden bg-white h-[29rem] rounded-lg shadow ">
       <h3 className="block font-semibold text-black">
         <span className="w-4 h-4 text-blue-500 bg-blue-500 rounded-full">
           .
