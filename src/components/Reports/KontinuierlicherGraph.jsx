@@ -17,7 +17,7 @@ ChartJS.register(
   Tooltip
 );
 
-const KontinuierlicherGraph = () => {
+const KontinuierlicherGraph = ({ graphName }) => {
   const data = {
     labels: [
       "12. Juni 2024",
@@ -104,17 +104,17 @@ const KontinuierlicherGraph = () => {
         <span className="w-4 h-4 text-blue-500 bg-blue-500 rounded-full">
           .
         </span>{" "}
-        Kontinuierlicher Graph
+        {graphName}
       </h3>
       <div className="relative flex items-center w-full gap-2">
         <div className="flex-col hidden w-12 md:flex">
-          <button className="w-full p-2 px-3 text-white bg-blue-500 rounded-t-full">
+          <button className="w-full p-3 px-3 text-white bg-[#0480CA] rounded-t-full">
             12
           </button>
           <div className="flex items-center justify-center w-full h-24 border">
             <p className="rotate-90">Zielbereich</p>
           </div>
-          <button className="w-full p-2 px-3 text-white bg-blue-500 rounded-b-full">
+          <button className="w-full p-3 px-3 text-white bg-[#0480CA] rounded-b-full">
             4
           </button>
         </div>

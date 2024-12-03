@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import KontinuierlicherGraph from "./KontinuierlicherGraph";
+import TäglicheReport from "./TäglicheReport";
 
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -54,7 +55,7 @@ const CGMReport = () => {
   }, []);
 
   return (
-    <div className="p-3 xl:py-8 xl:px-5">
+    <div className="px-3 xl:py-3 xl:px-5">
       <div className="mb-4 rounded-lg">
         {/* Tabs */}
         <div className="flex items-center justify-between mb-4">
@@ -191,69 +192,232 @@ const CGMReport = () => {
         </div>
       </div>
 
-      <div className="py-4 md:py-6 ">
-        <div className="grid grid-cols-1 gap-4 md:gap-5 xl:grid-cols-12">
-          {/* Left Section */}
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:col-span-5">
-            {/* Cards */}
-            {[
-              { value: "9.16", unit: "mmol/L", label: "Durchschnitts-wert" },
-              { value: "1.72", unit: "SD", label: "Standard Abweichung" },
-              { value: "15.7", unit: "mmol/L", label: "Durchschnitts-wert" },
-              { value: "2.62", unit: "", label: "Effektive Amplitude" },
-              { value: "71.7", unit: "%", label: "TIR" },
-              { value: "6.2", unit: "mmol/L", label: "Niedrigster Wert" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="p-4 text-center bg-white rounded-lg shadow h-[8rem] md:h-[10rem]"
-              >
-                <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
-                  {item.value}{" "}
-                  <span className="block text-sm text-gray-500 sm:text-md md:text-lg">
-                    {item.unit}
-                  </span>
-                </h2>
-                <p className="text-sm text-gray-500 sm:text-md">{item.label}</p>
+      {active === "Überblick" && (
+        <>
+          <div className="py-4 md:py-6 ">
+            <div className="grid grid-cols-1 gap-4 md:gap-5 xl:grid-cols-12">
+              {/* Left Section */}
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 xl:col-span-5">
+                {/* Cards */}
+                {[
+                  {
+                    value: "9.16",
+                    unit: "mmol/L",
+                    label: "Durchschnitts-wert",
+                  },
+                  { value: "1.72", unit: "SD", label: "Standard Abweichung" },
+                  {
+                    value: "15.7",
+                    unit: "mmol/L",
+                    label: "Durchschnitts-wert",
+                  },
+                  { value: "2.62", unit: "", label: "Effektive Amplitude" },
+                  { value: "71.7", unit: "%", label: "TIR" },
+                  { value: "6.2", unit: "mmol/L", label: "Niedrigster Wert" },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="p-4 text-center bg-white rounded-lg shadow h-[8rem] md:h-[10rem]"
+                  >
+                    <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
+                      {item.value}{" "}
+                      <span className="block text-sm text-gray-500 sm:text-md md:text-lg">
+                        {item.unit}
+                      </span>
+                    </h2>
+                    <p className="text-sm text-gray-500 sm:text-md">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          {/* Right Section */}
-          <div className="flex flex-col items-center xl:col-span-5">
-            <div className="flex flex-col items-center w-full p-4 bg-white rounded-lg shadow">
-              <h3 className="mb-4 text-base font-semibold text-gray-700 md:text-lg">
-                Blutzuckerverhältnis
-              </h3>
-              <div
-                className={`w-full`}
-                style={{ maxWidth: "400px", height: "220px" }}
-              >
-                <Doughnut data={chartData} options={chartOptions} />
+              {/* Right Section */}
+              <div className="flex flex-col items-center xl:col-span-5">
+                <div className="flex flex-col items-center w-full p-4 bg-white rounded-lg shadow">
+                  <h3 className="mb-4 text-base font-semibold text-gray-700 md:text-lg">
+                    Blutzuckerverhältnis
+                  </h3>
+                  <div
+                    className={`w-full`}
+                    style={{ maxWidth: "400px", height: "220px" }}
+                  >
+                    <Doughnut data={chartData} options={chartOptions} />
+                  </div>
+                  <p className="mt-4 text-sm text-gray-500">
+                    Hyperglykämie: 7.19% Hypoglykämie: 0%
+                  </p>
+                </div>
               </div>
-              <p className="mt-4 text-sm text-gray-500">
-                Hyperglykämie: 7.19% Hypoglykämie: 0%
-              </p>
+
+              {/* Info Section */}
+              <div className="p-4 bg-white rounded-lg shadow xl:col-span-2">
+                <h4 className="mb-2 font-semibold text-gray-700">Details:</h4>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li>Sender-ID: 022309348</li>
+                  <li>Sensor-ID: 6NSOX4</li>
+                  <li>APP: CGM</li>
+                  <li>Mobil: Redmi 23012RAA2Y 13 2022</li>
+                  <li>System:</li>
+                </ul>
+              </div>
             </div>
           </div>
 
-          {/* Info Section */}
-          <div className="p-4 bg-white rounded-lg shadow xl:col-span-2">
-            <h4 className="mb-2 font-semibold text-gray-700">Details:</h4>
-            <ul className="space-y-1 text-sm text-gray-600">
-              <li>Sender-ID: 022309348</li>
-              <li>Sensor-ID: 6NSOX4</li>
-              <li>APP: CGM</li>
-              <li>Mobil: Redmi 23012RAA2Y 13 2022</li>
-              <li>System:</li>
-            </ul>
+          <div className="flex items-center justify-center w-full mb-6">
+            <KontinuierlicherGraph graphName={"Kontinuierlicher Graph"} />
+          </div>
+        </>
+      )}
+
+      {active === "24-Stunden-Überlappungsdiagramm" && (
+        <>
+          <div className="flex items-center justify-center w-full mb-6">
+            <KontinuierlicherGraph
+              graphName={"24-Stunden-Überlappungsdiagramm"}
+            />
+          </div>
+        </>
+      )}
+
+      {active === "Tägliche Zusammenfassung" && (
+        <div className="grid grid-cols-1 space-y-4 md:space-y-0 md:grid-cols-12">
+          <div className="col-span-6 mr-4 space-y-4">
+            <TäglicheReport dataset={[6, 18, 2, 20, 8, 17.3]} />
+            <TäglicheReport dataset={[16, 8, 12, 6, 8, 7.3]} />
+            <TäglicheReport dataset={[9, 18, 2, 10, 18, 17.3]} />
+          </div>
+
+          <div className="col-span-6 space-y-4">
+            <div className="grid grid-cols-12 gap-4">
+              {[
+                {
+                  value: "9.16",
+                  unit: "mmol/L",
+                  label: "Durchschnitts-wert",
+                },
+                { value: "1.72", unit: "SD", label: "Standard Abweichung" },
+                {
+                  value: "15.7",
+                  unit: "mmol/L",
+                  label: "Durchschnitts-wert",
+                },
+                {
+                  value: "2.62",
+                  unit: "%",
+                  label: "Hyperglykämie Prozentsatz",
+                },
+                { value: "71.7", unit: "%", label: "Hypoglykämie Prozent" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`p-4 text-center ${
+                    index === 0 || index === 1 || index === 2
+                      ? "col-span-6 sm:col-span-4"
+                      : index === 4
+                      ? "col-span-12 md:col-span-6"
+                      : "col-span-6"
+                  } bg-white rounded-lg shadow h-[8rem] md:h-[10rem]`}
+                >
+                  <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
+                    {item.value}{" "}
+                    <span className="block text-sm text-gray-500 sm:text-md md:text-lg">
+                      {item.unit}
+                    </span>
+                  </h2>
+                  <p className="text-sm text-gray-500 xl:text-lg">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-12 gap-4">
+              {[
+                {
+                  value: "9.16",
+                  unit: "mmol/L",
+                  label: "Durchschnitts-wert",
+                },
+                { value: "1.72", unit: "SD", label: "Standard Abweichung" },
+                {
+                  value: "15.7",
+                  unit: "mmol/L",
+                  label: "Durchschnitts-wert",
+                },
+                {
+                  value: "2.62",
+                  unit: "%",
+                  label: "Hyperglykämie Prozentsatz",
+                },
+                { value: "71.7", unit: "%", label: "Hypoglykämie Prozent" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`p-4 text-center ${
+                    index === 0 || index === 1 || index === 2
+                      ? "col-span-6 sm:col-span-4"
+                      : index === 4
+                      ? "col-span-12 md:col-span-6"
+                      : "col-span-6"
+                  } bg-white rounded-lg shadow h-[8rem] md:h-[10rem]`}
+                >
+                  <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
+                    {item.value}{" "}
+                    <span className="block text-sm text-gray-500 sm:text-md md:text-lg">
+                      {item.unit}
+                    </span>
+                  </h2>
+                  <p className="text-sm text-gray-500 xl:text-lg">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-12 gap-4">
+              {[
+                {
+                  value: "9.16",
+                  unit: "mmol/L",
+                  label: "Durchschnitts-wert",
+                },
+                { value: "1.72", unit: "SD", label: "Standard Abweichung" },
+                {
+                  value: "15.7",
+                  unit: "mmol/L",
+                  label: "Durchschnitts-wert",
+                },
+                {
+                  value: "2.62",
+                  unit: "%",
+                  label: "Hyperglykämie Prozentsatz",
+                },
+                { value: "71.7", unit: "%", label: "Hypoglykämie Prozent" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className={`p-4 text-center ${
+                    index === 0 || index === 1 || index === 2
+                      ? "col-span-6 sm:col-span-4"
+                      : index === 4
+                      ? "col-span-12 md:col-span-6"
+                      : "col-span-6"
+                  } bg-white rounded-lg shadow h-[8rem] md:h-[10rem]`}
+                >
+                  <h2 className="text-base font-bold text-gray-800 sm:text-lg md:text-2xl">
+                    {item.value}{" "}
+                    <span className="block text-sm text-gray-500 sm:text-md md:text-lg">
+                      {item.unit}
+                    </span>
+                  </h2>
+                  <p className="text-sm text-gray-500 xl:text-lg">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="flex items-center justify-center w-full mb-6">
-        <KontinuierlicherGraph />
-      </div>
+      )}
     </div>
   );
 };
