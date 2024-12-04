@@ -3,6 +3,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import KontinuierlicherGraph from "./KontinuierlicherGraph";
 import TäglicheReport from "./TäglicheReport";
+import TIRGraph from "./TirGraph";
 
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -418,6 +419,8 @@ const CGMReport = () => {
           </div>
         </div>
       )}
+
+      {active === "TIRGraph" && <TIRGraph />}
     </div>
   );
 };
