@@ -4,6 +4,8 @@ import { Doughnut } from "react-chartjs-2";
 import KontinuierlicherGraph from "./KontinuierlicherGraph";
 import TäglicheReport from "./TäglicheReport";
 import TIRGraph from "./TirGraph";
+import Druckoption from "./Druckoption";
+import Pagination from "../Paginations/Pagination";
 
 // Register required chart components
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -136,7 +138,7 @@ const CGMReport = () => {
 
         {/* Date Range */}
         <div className="flex flex-wrap items-center justify-between mb-4 space-y-2 md:mb-0 md:space-x-4">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <div className="relative">
               <input
                 type="date"
@@ -161,7 +163,7 @@ const CGMReport = () => {
               </div>
             </div>
             <span className="text-[0.8rem] font-medium text-gray-900  sm:text-sm">
-              Zu
+              bis
             </span>
             <div className="relative">
               <input
@@ -421,6 +423,44 @@ const CGMReport = () => {
       )}
 
       {active === "TIRGraph" && <TIRGraph />}
+
+      {active === "Druckoption" && (
+        <>
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+            <h2 className="text-lg font-semibold text-black">
+              <span className="w-4 h-4 text-blue-500 bg-blue-500 rounded-full">
+                .
+              </span>{" "}
+              Zum Drucken auswählen
+            </h2>
+            <div className="flex flex-wrap items-center justify-center gap-3 ">
+              <button className="px-4 py-2 text-white bg-blue-400 rounded">
+                Bericht
+              </button>
+              <button className="px-4 py-2 text-black bg-white rounded">
+                Drucken 🖨️
+              </button>
+              <button className="px-4 py-2 text-black bg-white rounded">
+                Als PDF speichern📥
+              </button>
+            </div>
+          </div>
+
+          <Druckoption />
+        </>
+      )}
+
+      {active === "Datentabelle" && (
+        <>
+          <Druckoption />
+        </>
+      )}
+      {active === "Ereignisaufzeichnung" && (
+        <>
+          <Druckoption />
+          <Pagination active={active} />
+        </>
+      )}
     </div>
   );
 };

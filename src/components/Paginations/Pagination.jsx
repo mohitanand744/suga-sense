@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Pagination = ({ totalResults = 368, resultsPerPage = 10 }) => {
+const Pagination = ({ totalResults = 368, resultsPerPage = 10, active }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(totalResults / resultsPerPage);
@@ -12,29 +12,37 @@ const Pagination = ({ totalResults = 368, resultsPerPage = 10 }) => {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3 px-4 py-2 my-5 bg-white rounded-md shadow-lg sm:justify-between">
-      {/* Results Per Page Dropdown */}
-      <div className="relative flex flex-wrap items-center justify-center sm:justify-start w-full sm:w-[50%] gap-5">
-        <select
-          className="block px-3 py-2 text-sm text-black bg-white border-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          defaultValue={resultsPerPage}
-        >
-          <option value={10}>10</option>
-          <option value={25}>25</option>
-          <option value={50}>50</option>
-          <option value={100}>100</option>
-        </select>
+    <div
+      className={`flex flex-wrap items-center justify-center gap-3 px-4 py-2 my-5 ${
+        active !== "Ereignisaufzeichnung" && "bg-white rounded-md "
+      } sm:justify-between`}
+    >
+      {active !== "Ereignisaufzeichnung" && (
+        <div className="relative flex flex-wrap items-center justify-center sm:justify-start w-full sm:w-[50%] gap-5">
+          <select
+            className="block px-3 py-2 text-sm text-black bg-white border-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            defaultValue={resultsPerPage}
+          >
+            <option value={10}>10</option>
+            <option value={25}>25</option>
+            <option value={50}>50</option>
+            <option value={100}>100</option>
+          </select>
 
-        {/* Results Summary */}
-        <div className="text-sm font-bold text-gray-600">
-          Resultat: {resultsPerPage * (currentPage - 1) + 1}-
-          {Math.min(resultsPerPage * currentPage, totalResults)} von{" "}
-          {totalResults}
+          <div className="text-sm font-bold text-gray-600">
+            Resultat: {resultsPerPage * (currentPage - 1) + 1}-
+            {Math.min(resultsPerPage * currentPage, totalResults)} von{" "}
+            {totalResults}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Pagination */}
-      <div className="flex items-center gap-1">
+      <div
+        className={`flex items-center justify-end gap-1 ${
+          active === "Ereignisaufzeichnung" && "w-full"
+        }`}
+      >
         {/* Previous Button */}
         <button
           onClick={() => handlePageChange(currentPage - 1)}
