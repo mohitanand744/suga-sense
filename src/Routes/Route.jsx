@@ -21,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<LoginPage />} />
       <Route path="/dashboard" element={<Layout />}>
         <Route index element={<Dashboard />} />
+        <Route path="profile" element={<Dashboard />} />
         <Route path="patienten" element={<Dashboard />} />
         <Route path="cgmreport" element={<Dashboard />} />
         <Route path="support" element={<Dashboard />} />

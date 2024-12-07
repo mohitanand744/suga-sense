@@ -28,13 +28,13 @@ const Sidebar = () => {
         <img className="mx-auto" src="/images/Logo.svg" alt="" />
       </div>
 
-      <div class="w-full h-screen p-1 mt-5">
-        <ul class="space-y-4">
+      <div className="w-full h-screen p-1 mt-5">
+        <ul className="space-y-4">
           <li onClick={() => setActive("dashboard")}>
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard"}
-              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
+              className={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "dashboard"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear"
                   : "text-gray-600"
@@ -48,7 +48,7 @@ const Sidebar = () => {
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard/patienten"}
-              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
+              className={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "dashboardpatienten"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
@@ -62,7 +62,7 @@ const Sidebar = () => {
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard/support"}
-              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
+              className={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "dashboardsupport"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
@@ -76,13 +76,13 @@ const Sidebar = () => {
             <Link
               onClick={() => setToggleNav(!toggleNav)}
               to={"/dashboard/einstellungen"}
-              class={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
+              className={`flex items-center space-x-4  transition-all duration-150 ease-in hover:text-blue-500  p-2 ${
                 active === "dashboardeinstellungen"
                   ? "text-blue-600 bg-blue-100 scale-[1.1] transition-all duration-150 ease-linear "
                   : "text-gray-600"
               } rounded-md`}
             >
-              <span class="w-5 h-5 flex items-center justify-center text-gray-600">
+              <span className="w-5 h-5 flex items-center justify-center text-gray-600">
                 ⚙️
               </span>
               <span>Einstellungen</span>
@@ -92,7 +92,7 @@ const Sidebar = () => {
       </div>
       <div className="w-full">
         <Link to={"/"}>
-          <button class="flex text-lg items-center space-x-2 border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-100 w-full">
+          <button className="flex text-lg items-center space-x-2 border border-red-500 text-red-500 px-4 py-2 rounded-md hover:bg-red-100 w-full">
             <img src="/images/signIcon.png" alt="exit" />
             <span> Abmelden</span>
           </button>

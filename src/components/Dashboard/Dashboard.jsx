@@ -5,6 +5,7 @@ const PatientenTable = React.lazy(() => import("../TableDatas/TableDataChart"));
 import SearchFilterBar from "./../SearchBars/SearchFilterBar";
 import CGMReport from "../Reports/CGMReport";
 import HilfeSupport from "../Support/HilfeSupport";
+import ProfilePage from "../Profiles/Profile";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -12,7 +13,7 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`${pathname === "dashboard" && "p-8"} dashboard ${
+      className={`${pathname === "dashboard" && " p-3 md:p-8"} dashboard ${
         pathname === "dashboardcgmreport" ? "bg-gray-100 " : "bg-white"
       }`}
     >
@@ -76,6 +77,8 @@ const Dashboard = () => {
           <HilfeSupport />
         </>
       )}
+
+      {pathname === "dashboardprofile" && <ProfilePage />}
     </div>
   );
 };

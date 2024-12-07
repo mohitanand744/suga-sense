@@ -64,14 +64,14 @@ export default function PatientenTable({ pathname }) {
   const navigate = useNavigate();
 
   return (
-    <div className={`${pathname !== "dashboard" && "p-8"}`}>
+    <div className={` ${pathname !== "dashboard" && "p-3 md:p-8"}`}>
       <h2 className="mb-4 text-lg font-semibold text-black md:text-2xl">
         Ausgewählte Patienten
       </h2>
       <div className="overflow-x-auto hideScrollBar">
         <table className="w-full text-sm text-left border-collapse table-auto whitespace-nowrap lg:whitespace-normal">
           <thead>
-            <tr className="font-medium text-gray-600 bg-gray-100">
+            <tr className="font-medium text-gray-600 bg-gray-100 ">
               <th className="px-3 py-4">Name und Details</th>
               <th className="px-3 py-4">Letzte Daten</th>
               <th className="px-3 py-4">Letzter Glucosewert</th>

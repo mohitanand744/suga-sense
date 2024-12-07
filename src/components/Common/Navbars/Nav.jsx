@@ -1,5 +1,6 @@
 import React from "react";
 import UseContextData from "../../../Hooks/UseContextData";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const { setToggleNav } = UseContextData();
@@ -75,7 +76,9 @@ const Nav = () => {
             className="menu menu-sm dropdown-content bg-[#0480CA] border-[3px] flex flex-col justify-between shadow-2xl text-lg border-white text-white rounded-box z-[1] mt-3 w-52 h-52 p-2 "
           >
             <div className="">
-              <li className="hover:bg-[]">Profile</li>
+              <Link to={"/dashboard/profile"}>
+                <li className="hover:bg-[]">Profile</li>
+              </Link>
               <li className="hover:bg-[]">Settings</li>
               <li className="hover:bg-[]">Dashboard Settings</li>
             </div>

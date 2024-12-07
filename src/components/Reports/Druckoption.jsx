@@ -16,11 +16,11 @@ const Druckoption = () => {
       <div className="overflow-auto hideScrollBar">
         <table className="w-full text-black border-gray-300 table-auto whitespace-nowrap">
           <thead>
-            <tr className="text-left bg-white rounded-xl">
+            <tr className="text-left bg-white rounded-2xl">
               <th className="p-2 py-4 text-center ">Datum</th>
               <th className="p-2 py-4 text-center ">Überwachungsdauer</th>
-              <th className="hidden p-2 py-4 text-center md:block">
-                Prozentsatz der Hyperglykämie
+              <th className="p-2 py-4 text-center">
+                Prozentsatz <br className="block md:hidden" /> der Hyperglykämie
               </th>
               <th className="p-2 py-4 text-center ">Hypoglycemia Percent</th>
               <th className="p-2 py-4 text-center ">Option</th>
@@ -29,12 +29,11 @@ const Druckoption = () => {
           </thead>
           <tbody className="">
             {data.map((row, index) => (
-              <tr key={index} className="text-sm hover:bg-gray-50">
+              <tr key={index} className="h-16 text-sm hover:bg-gray-50">
                 <td className="px-2 py-5 text-center">{row.date}</td>
                 <td className="px-2 py-5 text-center">{row.duration}</td>
-                <td className="hidden px-2 py-5 text-center md:block">
-                  {row.hyper}
-                </td>
+                <td className="px-2 py-5 text-center"> {row.hyper}</td>
+
                 <td className="px-2 py-5 text-center">{row.hypo}</td>
                 <td className="px-2 py-5 text-center">
                   <button className="text-blue-500">Vorschau</button>

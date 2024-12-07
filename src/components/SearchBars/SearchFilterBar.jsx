@@ -6,7 +6,7 @@ const SearchFilterBar = ({ pathname }) => {
 
   return (
     <div
-      className={`flex flex-wrap justify-center px-5  ${
+      className={`flex flex-wrap justify-center px-3  ${
         pathname === "dashboardcgmreport" || pathname === "dashboardsupport"
           ? "md:justify-between gap-8"
           : "lg:justify-end"
